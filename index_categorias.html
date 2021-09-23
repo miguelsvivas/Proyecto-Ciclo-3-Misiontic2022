@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-    <style>
-        div {text-align: center;}
-        </style>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Ingresar</title>
+	<title>Gestion de categorias</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 </head>
-
-
-
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,57 +42,43 @@
         </div>
       </nav>
 
+      <h1>Categorias</h1>
+    <div class="card">
+    <div class="card-header">
+    <a name="" id="" class="btn btn-success" href="" role="button">Agregar categoria</a>
 
-      <h1 class="titulo">Ingresar</h1>
+    </div>
+      <div class="card-body">
+      <table class="table table-bordered">
+      	<thead>
+      		<tr>
+      			<th>ID</th>
+      			<th>Nombre</th>
+      			<th>Descripcion</th>
+      			<th>Opciones</th>
+      		</tr>
+      	</thead>
+      	<tbody>
+      		<tr>
+      			<td>1</td>
+      			<td>Hombre</td>
+      			<td>Ropa para hombre</td>
+      			<td><button type="button" class="btn btn-danger">Eliminar</button></a> <button type="button" class="btn btn-info">editar</button>
+      			</td>
 
+      		</tr>
+      		 <tr>
+      		 	<td>2</td>
+      			<td>Mujer</td>
+      			<td>Ropa para mujer</td>
+      			<td><button type="button" class="btn btn-danger">Eliminar</button></a> <button type="button" class="btn btn-info">editar</button>
+      			</td>
 
-
-        
-  <div class="container">
-      <div class="row">
-
-        <div class="col-md-4">
-            
-        </div>
-
-          <div class="col-md-4">
-              <br/><br/><br/>
-            <div class="card">
-                <div class="card-header">
-                   Login
-                </div>
-                <div class="card-body">
-               
-   
-                   <form method="POST" >
-
-                   <div class = "form-group">
-                   <label >Usuario</label>
-                   <input type="text" class="form-control" name="usuario"  placeholder="Escribe tu usuario">
-                   </div>
-
-
-                   <div class="form-group">
-
-                   <label >Contraseña:</label>
-                   <input type="password" class="form-control" name="contraseña"  placeholder="Escribe tu contraseña ">
-                   </div>
-
-
-                   <button type="submit" class="btn btn-primary">Ingresar</button>
-                   </form>
-                   
-                   
-
-                </div>
-               
-            </div>
-
-          </div>
-          
+      		</tr>
+      	</tbody>
+      </table>
       </div>
-  </div>
-
+      </div>  
 
 </body>
 </html>

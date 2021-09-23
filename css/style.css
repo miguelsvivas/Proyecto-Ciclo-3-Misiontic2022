@@ -7,4 +7,12 @@
 
 .titulo{
     margin-left: 50px;
+    font-family: inherit;
+}
+
+
+.tablacategorias{
+	text-align: center;
+    margin-left: 500px;
+    margin-right: 500px;
 }
