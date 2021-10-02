@@ -33,7 +33,7 @@
  </table>
  <br/>
  <br/>
-    <router-link class="btn btn-success" to="/"
+    <router-link class="btn btn-success" to="/CreteComponent"
  >Registrar administrador</router-link>
  </div>
  </div>
