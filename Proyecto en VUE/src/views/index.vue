@@ -72,7 +72,9 @@
             Imagine some exciting prose here.
           </p>
           <p>
-            <a class="btn btn-outline-primary" href="">Ver productos</a>
+            <router-link class="nav-link" to="/mujer"
+          ><b-button variant="outline-primary">Ver productos</b-button></router-link
+        >
           </p>
         </b-col>
         <b-col md="5">
@@ -100,7 +102,9 @@
             real-world content in place.
           </p>
           <p>
-            <a class="btn btn-outline-primary" href="">Ver productos</a>
+            <router-link class="nav-link" to="/hombre"
+          ><b-button variant="outline-primary">Ver productos</b-button></router-link
+        >
           </p>
         </div>
         <div class="col-md-5 order-md-1">
@@ -128,7 +132,9 @@
             actual content. Your content.
           </p>
           <p>
-            <a class="btn btn-outline-primary" href="">Ver productos</a>
+            <router-link class="nav-link" to="/accesorios"
+          ><b-button variant="outline-primary">Ver productos</b-button></router-link
+        >
           </p>
         </b-col>
         <b-col md="5">
