@@ -1,45 +1,42 @@
 <template>
+
+
  <div class="row">
  <div class="col-md-12">
  <table class="table table-striped">
  <thead class="thead-dark">
  <tr>
  <th>Nombre</th>
- <th>Email</th>
- <th>Actions</th>
+ <th>Descripcion</th>
+ <th>Opciones</th>
  </tr>
  </thead>
  <tbody>
- <tr v-for="student in Students" :key="student._id">
- <td>{{ student.name }}</td>
- <td>{{ student.email }}</td>
+ <tr v-for="category in Categories" :key="category._id">
+ <td>{{ category.name }}</td>
+ <td>{{ category.description }}</td>
  <td>
-
  <router-link
- :to="{ name: 'edit', params: { id: student._id } }"
- class="btn btn-success" 
- >Editar
+ :to="{ name: 'editcat', params: { id: category._id } }"
+ class="btn btn-success"
+ >Edit
  </router-link>
-<!--   <router-link class="btn btn-outline-danger" to="/editar"
-  >Editar</router-link> -->
-
-
-
-
  <button
- @click.prevent="deleteStudent(student._id)"
+ @click.prevent="deleteCategory(category._id)"
  class="btn btn-danger"
  >
- Eliminar
+ Delete
  </button>
  </td>
  </tr>
  </tbody>
  </table>
+
  <br/>
  <br/>
+
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Registrar Administrador
+  Registrar Categoria
 </button>
 
 <!-- Modal -->
@@ -47,7 +44,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registrar Administrador</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Categoria</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -55,26 +52,16 @@
           <form @submit.prevent="handleSubmitForm">
         <div class="form-group">
           <label>Nombre</label>
-          <input type="text" class="form-control" v-model="student.name"
+          <input type="text" class="form-control" v-model="category.name"
             required
           />
         </div>
 
         <div class="form-group">
-          <label>Email</label>
+          <label>Descripcion</label>
           <input
-            type="email" class="form-control"
-            v-model="student.email"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label>Contraseña</label>
-          <input
-            type="password"
-            class="form-control"
-            v-model="student.password"
+            type="text" class="form-control"
+            v-model="category.description"
             required
           />
         </div>
@@ -99,48 +86,53 @@
     </div>
   </div>
 </div>
+
  </div>
- </div>
+
+
+
+</div>
+
+
+
+
+
 
 
 </template>
-<script>
-
-
-
+<script >
 import axios from "axios";
 
 export default {
   data() {
     return {
-    Students:[],	
-      student: {
+    Categories:[],	
+      category: {
         name: "",
-        email: "",
-        password: "",
+        description: "",
       },
     };
   },
  created() {
- let apiURL = "http://localhost:4000/api";
+ let apiURL = "http://localhost:4000/api/show";
  axios
  .get(apiURL)
  .then((res) => {
- this.Students = res.data;
+ this.Categories = res.data;
  })
  .catch((error) => {
  console.log(error);
  });
  },
  methods: {
- deleteStudent(id) {
- let apiURL = `http://localhost:4000/api/delete-student/${id}`;
- let indexOfArrayItem = this.Students.findIndex((i) => i._id === id);
+ deleteCategory(id) {
+ let apiURL = `http://localhost:4000/api/delete-category/${id}`;
+ let indexOfArrayItem = this.Categories.findIndex((i) => i._id === id);
  if (window.confirm("Do you really want to delete?")) {
  axios
  .delete(apiURL)
  .then(() => {
- this.Students.splice(indexOfArrayItem, 1);
+ this.Categories.splice(indexOfArrayItem, 1);
  })
  .catch((error) => {
  console.log(error);
@@ -148,16 +140,15 @@ export default {
  }
  },
      handleSubmitForm() {
-      let apiURL = "http://localhost:4000/api/create-student";
+      let apiURL = "http://localhost:4000/api/create-category";
 
       axios
-        .post(apiURL, this.student)
+        .post(apiURL, this.category)
         .then(() => {
           //this.$router.push("/view");
-          this.student = {
+          this.category = {
             name: "",
-            email: "",
-            password: "",
+            description: "",
           },location.reload();
         })
         .catch((error) => {
@@ -172,8 +163,3 @@ export default {
 
 
 </script>
-<style>
-.btn-success {
- margin-right: 10px;
-}
-</style>

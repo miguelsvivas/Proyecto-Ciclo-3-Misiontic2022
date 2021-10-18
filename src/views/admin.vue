@@ -1,24 +1,6 @@
 <template>
  <div>
- <!-- Nav bar -->
- <nav
- class="navbar navbar-dark bg-dark justify-content-between flexnowrap flex-row"
- >
-
- <a class="navbar-brand float-left"> Tienda deportiva</a>
- <ul class="nav navbar-nav flex-row float-right">
- <li class="nav-item">
-<!--  <router-link class="nav-link pr-3" to="/"
- >Create Student</router-link
- > -->
-  <router-link class="nav-link pr-3" to="/"
- >Ir a la tienda</router-link
- >
- </li>
- </ul>
-
- </nav>
-
+ <NavBar2/>
 
     
 <div class="container-fluid">
@@ -33,19 +15,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" @click="changeOption(2)" :class="[ option==1 ? 'active' : '']">Administrador
+            <a class="nav-link" @click="changeOption(1)" :class="[ option==1 ? 'active' : '']">Administrador
               
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-            <router-link class="nav-link" to="/viewcategory">Categorias</router-link>
+             <a class="nav-link" @click="changeOption(2)" :class="[ option==2 ? 'active' : '']">Categorias
+              
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              Ventas
+          <a class="nav-link" @click="changeOption(3)" :class="[ option==3 ? 'active' : '']">Productos
+              
             </a>
           </li>
         <!--   <li class="nav-item">
@@ -85,6 +66,8 @@
        <div class="container ">
 <!--  <router-view></router-view> -->
   <Article v-if="option == 1"/>
+  <Category v-else-if="option == 2"/>
+  <Product v-else-if="option == 3"/>
  </div>	
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
@@ -108,9 +91,17 @@
 
 <script>
   import Article from '../components/admin/ListComponent'
+  import NavBar2 from '../components/admin/navbar/navbar.vue'
+  import Category from '../components/admin/ListCategoryComponent'
+  import Product from '../components/admin/ListProductComponent'
+
+
   export default {
   components: {
     Article,
+    NavBar2,
+    Category,
+    Product
 
   },
   data() {

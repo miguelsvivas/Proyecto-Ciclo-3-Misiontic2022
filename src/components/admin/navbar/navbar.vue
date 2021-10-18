@@ -1,8 +1,9 @@
+
 <template>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand text-primary" href="#"
-          ><strong><em>Tienda de Ropa Deportiva</em></strong></a
+        <a class="navbar-brand text-primary" to="/admin"
+          ><strong><em>Panel de Administración</em></strong></a
         >
         <button
           class="navbar-toggler"
@@ -18,16 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/mujer">Mujer</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/hombre">Hombre</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/accesorios">Accesorios</router-link>
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
             </li>
           </ul>
           <!--<form class="d-flex">
@@ -37,7 +29,7 @@
                     </button>
                 </form>-->
         
-          <router-link class="btn btn-outline-primary" to="/login">Acceder</router-link>
+          <router-link class="btn btn-outline-danger" to="/">Cerrar Sesión</router-link>
         </div>
       </div>
     </nav>

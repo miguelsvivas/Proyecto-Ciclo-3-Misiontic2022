@@ -93,6 +93,36 @@
       </div>
       <!-- Fin Sección 1 -->
 
+      <h3>Productos</h3>
+     <!--  Seccion productos -->
+          <div class="row productos" >
+            <div class="col-lg-4"  v-for="product in Products" :key="product._id">
+             
+            <div class="card">
+              <div class="card-header">
+                {{product.name}}
+              </div>
+              <div class="card-body">
+                <img v-bind:src="product.imagen" width="350px" height="350px">
+                <h4 class="card-title">${{product.precio}}</h4>
+                <p class="card-text">{{ product.description}}</p>
+                <router-link class="btn btn-primary" to="/compra">Comprar</router-link>
+              </div>
+              <div class="card-footer text-muted">
+                2 days ago
+              </div>
+            </div>
+
+
+            </div>
+
+          <!-- /.col-lg-4 -->
+
+          <!-- /.col-lg-4 -->
+        </div>
+
+        <br/> <br/> <br/>
+
       <!-- Inicio Sección 2 (Productos) -->
       <div class="container marketing">
         <div class="row featurette">
@@ -304,18 +334,7 @@
       <!-- Inicio Sección 4 -->
       <!-- Footer -->
       <hr class="featurette-divider" />
-      <footer class="container">
-        <p class="float-end"><a href="#">Ir arriba</a></p>
-        <p>
-          <!--&copy;-->
-          Hecho en Colombia &middot;
-          <a
-            href="https://github.com/miguelvivas13/Proyecto-Ciclo-3-Misiontic2022"
-            target="_blank"
-            >Repositorio en GitHub</a
-          >
-        </p>
-      </footer>
+      <Footer/>
     </main>
 
 
@@ -326,12 +345,36 @@
 
 </template>
 
+
+
 <script>
+    import axios from "axios";
     import NavBar from '../components/navbar/navbar.vue'
+    import Footer from '../components/footer.vue'
     export default {
+        data() {
+    return {
+    Products:[],  
+    };
+  },
   components: {
-    NavBar
-  }}
+    NavBar,
+    Footer
+  },
+     created() {
+ let apiURL = "http://localhost:4000/api/showproduct";
+ axios
+ .get(apiURL)
+ .then((res) => {
+ this.Products = res.data;
+ })
+ .catch((error) => {
+ console.log(error);
+ });
+ }
+};
+
+
 </script>
 
 
@@ -344,6 +387,11 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+}
+
+.productos{
+  padding-left: 50px;
+  padding-right: 20px;
 }
 
 
